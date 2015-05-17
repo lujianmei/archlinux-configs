@@ -1,0 +1,70 @@
+#
+# These things are run when an Openbox X Session is started.
+# You may place a similar script in $HOME/.config/openbox/autostart
+# to run user-specific things.
+#
+
+# If you want to use GNOME config tools...
+#
+#if test -x /usr/lib/openbox/gnome-settings-daemon >/dev/null; then
+#  /usr/lib/openbox/gnome-settings-daemon &
+#elif which gnome-settings-daemon >/dev/null 2>&1; then
+#  gnome-settings-daemon &
+#fi
+
+# If you want to use XFCE config tools...
+#
+#xfce-mcs-manager &
+
+
+# This shell script is run before Openbox launches.
+# Environment variables set here are passed to the Openbox session.
+# D-bus
+if which dbus-launch >/dev/null && test -z "$DBUS_SESSION_BUS_ADDRESS"; then
+eval `dbus-launch --sh-syntax --exit-with-session`
+fi
+
+# Run XDG autostart things. By default don't run anything desktop-specific
+# See xdg-autostart --help more info
+#DESKTOP_ENV=""
+#if which /usr/lib64/openbox/xdg-autostart >/dev/null; then
+# /usr/lib64/openbox/xdg-autostart $DESKTOP_ENV
+#fi
+#xcompmgr -cCfF -t-5 -l-5 -r4 -o.55 &
+#xcompmgr -cC -t-3 -l-5 -r5 -I0.02 -O0.03 -D4 -fF &
+#xcompmgr -cCfF -r7 -o.60 -l-10 -t-8 -D7 & # shadows and fades
+#set wallpaper
+#eval `cat ~/.fehbg` &
+/home/kevin/.config/openbox/wallpapers.sh
+# URxvt server
+if which urxvtd > /dev/null; then
+urxvtd -o -q -f&
+fi
+
+#set the tint2
+if which tint2 > /dev/null; then
+tint2 &
+fi
+# set the fcitx
+#if which fcitx > /dev/null; then
+(sleep 2 && fcitx) &
+#fi
+
+# Programs that will run after Openbox has started
+#(sleep 2 && pypanel) &
+(sleep 2 && conky) &
+#(sleep 2 && eval `feh --bg-scale wallpaper.jpg`) &
+
+
+# Start xfce4 power manager, using tlp instead now
+#(sleep 2 && xfce4-power-manager) &
+
+# Start Network Manager Applet on tool bar
+(sleep 2 && nm-applet) &
+
+# Change the keymap for emacs
+    setxkbmap -option;
+    setxkbmap -option 'ctrl:swapcaps';
+
+# Disable touchpad when typing, and enable after 1 second automatically
+syndaemon -i 0.5 -K -R
