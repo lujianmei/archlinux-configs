@@ -10,4 +10,83 @@
 	<startup-notify/>
 	<directories/>
 </action>
+<action>
+	<icon>preferences-system-search-symbolic</icon>
+	<name>Search files…</name>
+	<unique-id>1431849102181532-10</unique-id>
+	<command>catfish --fileman=thunar --path=%f</command>
+	<description>Search by catfish</description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>meld</icon>
+	<name>Compare</name>
+	<unique-id>1431848890143310-9</unique-id>
+	<command>meld %F</command>
+	<description>Compare by meld</description>
+	<patterns>*</patterns>
+	<directories/>
+	<text-files/>
+</action>
+<action>
+	<icon>emacs</icon>
+	<name>Open By Emacsclient</name>
+	<unique-id>1431904910987041-3</unique-id>
+	<command>emacsclient -c %f</command>
+	<description>Open By Emacsclient</description>
+	<patterns>*</patterns>
+	<text-files/>
+</action>
+<action>
+	<icon>preferences-system-search-symbolic</icon>
+	<name>Search files inside…</name>
+	<unique-id>1431849134913719-11</unique-id>
+	<command>catfish --fileman=thunar --path=%f%d</command>
+	<description>Search files inside…</description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon></icon>
+	<name>Extract here (bzip2)</name>
+	<unique-id>1431849170350493-12</unique-id>
+	<command>tar xjf %n</command>
+	<description>Extract here (bzip2)</description>
+	<patterns>*.tar.bz2;*.tbz2</patterns>
+	<other-files/>
+</action>
+<action>
+	<icon>shutter-panel</icon>
+	<name>Extract here (zip)</name>
+	<unique-id>1431849225101661-13</unique-id>
+	<command>unzip %f</command>
+	<description>Extract here (zip)</description>
+	<patterns>*.zip</patterns>
+	<other-files/>
+</action>
+<action>
+	<icon>accessories-character-map</icon>
+	<name>Create tar.gz from folder</name>
+	<unique-id>1431849254977889-14</unique-id>
+	<command>tar czvf %n.tar.gz %n</command>
+	<description>Create tar.gz from folder</description>
+	<patterns>*</patterns>
+	<directories/>
+	<other-files/>
+</action>
+<action>
+	<icon>bluetooth-symbolic</icon>
+	<name>Copy Pathname to Clipboard</name>
+	<unique-id>1431849347821047-15</unique-id>
+	<command>echo -n %f | xclip -i</command>
+	<description>Copy Pathname to Clipboard</description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
 </actions>

@@ -321,6 +321,7 @@ Spanish (Latin American):latam:es
 Spanish (Latin American):latam:Spanish (Latin American, eliminate dead keys):nodeadkeys:es
 Spanish (Latin American):latam:Spanish (Latin American, include dead tilde):deadtilde:es
 Spanish (Latin American):latam:Spanish (Latin American, Sun dead keys):sundeadkeys:es
+Spanish (Latin American):latam:Spanish (Latin American, Dvorak):dvorak:es
 Lithuanian:lt:lt
 Lithuanian:lt:Lithuanian (standard):std:lt
 Lithuanian:lt:Lithuanian (US keyboard with Lithuanian letters):us:lt
@@ -486,6 +487,7 @@ Tajik:tj:Tajik (legacy):legacy:tg
 Sinhala (phonetic):lk:si
 Sinhala (phonetic):lk:Tamil (Sri Lanka, Unicode):tam_unicode:ta
 Sinhala (phonetic):lk:Tamil (Sri Lanka, TAB Typewriter):tam_TAB:ta
+Sinhala (phonetic):lk:Sinhala (US keyboard with Sinhala letters):us:si
 Thai:th:th
 Thai:th:Thai (TIS-820.2538):tis:th
 Thai:th:Thai (Pattachote):pat:th

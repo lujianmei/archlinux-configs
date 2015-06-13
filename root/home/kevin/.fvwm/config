@@ -1,0 +1,140 @@
+DesktopSize 1x1
+
+Style * Font -*-serenetypewriter-bold-*-*-*-12-*-*-*-*-*-*-ru, SloppyFocus, MwmBorder, \
+        EWMHUseStrutHints, EWMHPlacementUseWorkingArea
+Style Ionbar !Borders, !Handles, !Title, Sticky, WindowListSkip, NeverFocus
+Style FvwmTabs !Title
+
+EwmhBaseStruts 0 0 18 0
+
+IgnoreModifiers default
+
+DestroyFunc FWKey
+AddToFunc   FWKey
++ I Key $0 W $1 $[2-]
++ I Key $0 F $1 $[2-]
++ I Key $0 S $1 $[2-]
++ I Key $0 T $1 $[2-]
+
+DestroyFunc CMove
+AddToFunc   CMove
++ I Key Up    A $0 CursorMove   0 -$1
++ I Key Down  A $0 CursorMove   0  $1
++ I Key Left  A $0 CursorMove -$1   0
++ I Key Right A $0 CursorMove  $1   0
+
+
+Key     F2       A   N    Exec exec urxvt
+Key     F3       A   N    FvwmDmenu
+Key     F12      A   N    FvwmLock
+
+Key     Left     A   CM   GotoDesk -1 0 19
+Key     Right    A   CM   GotoDesk  1 0 19
+
+CMove                4    75p
+CMove                4S   15p
+CMove                4C   1p
+
+FWKey   C            M    Close
+FWKey   Return       M    ToggleMaximize
+FWKey   Left         M    MoveToDesk -1 0 19
+FWKey   Right        M    MoveToDesk  1 0 19
+FWKey   Space        4    CenterWindow
+FWKey   R            4    Resize
+FWKey   M            4    Move
+
+PipeRead 'perl $[HOME]/.fvwm/scripts/keys.pl'
+
+
+DestroyFunc FvwmDmenu
+AddToFunc   FvwmDmenu
++ I Exec exec `echo $PATH \
+               | sed 's/\:/ /g' \
+               | xargs ls \
+               | sed -e 's/^\/[^:]*:$//g' -e '/^$/d' \
+               | dmenu -b -p "Launch" -fn -misc-fixed-medium-r-*-*-13-*-*-*-*-*-*-r`
+
+DestroyFunc FvwmLock
+AddToFunc   FvwmLock
++ I Exec exec xscreensaver-command -lock
+
+DestroyModuleConfig FvwmEvent
+*FvwmEvent: new_desk DeskChangedHook
+
+DestroyFunc FvwmExpand
+AddToFunc   FvwmExpand
++ I SendToModule FvwmPerl preprocess -c -- $*
+
+DestroyFunc FvwmEval
+AddToFunc   FvwmEval
++ I SendToModule FvwmPerl eval $*
+
+DestroyFunc DeskChangedHook
+AddToFunc   DeskChangedHook
++ I FvwmEval   $h{last_desk} = $h{current_desk}; $h{current_desk} = $[desk.n]; 
++ I FvwmExpand SendToModule $[HOME]/.fvwm/scripts/ionbar/ionbar \
+                        SendString %{$h{last_desk} + 1}% 2
++ I FvwmExpand SendToModule $[HOME]/.fvwm/scripts/ionbar/ionbar \
+                        SendString %{$h{current_desk} + 1}% 1 
+
+DestroyFunc StartFunction
+AddToFunc   StartFunction
++ I StartIonbar
++ I Module FvwmEvent
++ I Module FvwmCommandS
++ I Module FvwmPerl
++ I FvwmEval use POSIX
++ I Exec exec perl $[HOME]/.fvwm/scripts/ionbar/animate.pl
+
+DestroyFunc StartIonbar
+AddToFunc   StartIonbar
++ I PipeRead "perl $[HOME]/.fvwm/scripts/ionbar/generate.pl \
+              $[HOME]/.fvwm/scripts/ionbar/ionbar"
++ I Module FvwmScript $[HOME]/.fvwm/scripts/ionbar/ionbar
++ I LoadDeskColorsets 0
+
+DestroyFunc LoadDeskColorsets
+AddToFunc   LoadDeskColorsets
++ I PipeRead 'perl $[HOME]/.fvwm/scripts/ionbar/rainbow.pl $0'
+
+Colorset 30 bg black, fg gray90
+
+DestroyFunc ActivateWindow
+AddToFunc   ActivateWindow
++ I Iconify off
++ I FlipFocus
++ I Raise
++ I WarpToWindow 5p 5p
+
+DestroyFunc HideWindow
+AddToFunc   HideWindow
++ I Iconify
+
+DestroyFunc OpenWindow
+AddToFunc   OpenWindow
++ I Iconify off
++ I Raise
+
+DestroyFunc ToggleMaximize
+AddToFunc   ToggleMaximize
++ I ThisWindow (State 31) MakeUnmaximize 
++ I TestRc (NoMatch) MakeMaximize
+
+DestroyFunc MakeMaximize
+AddToFunc   MakeMaximize
++ I State 31 True
++ I WindowStyle !Title, !Handles, !Borders
++ I UpdateStyles
++ I Maximize
+
+DestroyFunc MakeUnmaximize
+AddToFunc   MakeUnmaximize
++ I State 31 False
++ I WindowStyle Title, Handles, Borders
++ I UpdateStyles
++ I Maximize
+  
+DestroyFunc CenterWindow
+AddToFunc   CenterWindow
++ I FvwmExpand AnimatedMove %{POSIX::ceil(($WIDTH - $[w.width])/2)}%p \
+                            %{POSIX::ceil(18 +($HEIGHT - 18 - $[w.height])/2)}%p

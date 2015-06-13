@@ -251,7 +251,7 @@
   </item>
 </menu>-->
 
-<menu id="apps-graphics-menu" label="Graphics">
+<!--<menu id="apps-graphics-menu" label="Graphics">
   <item label="Gimp">
     <action name="Execute">
       <command>gimp</command>
@@ -259,7 +259,7 @@
         <enabled>yes</enabled>
       </startupnotify>
     </action>
-  </item>
+  </item>-->
   <!--<item label="Gwenview">
     <action name="Execute">
       <command>gwenview</command>
@@ -267,7 +267,7 @@
         <enabled>yes</enabled>
       </startupnotify>
     </action>
-  </item>-->
+  </item>
   <item label="Dia Diagram Editor">
     <action name="Execute">
       <command>dia</command>
@@ -275,7 +275,7 @@
         <enabled>yes</enabled>
       </startupnotify>
     </action>
-  </item>
+  </item>-->
   <!--<item label="Inkscape">
     <action name="Execute">
       <command>inkscape</command>
@@ -283,16 +283,16 @@
         <enabled>yes</enabled>
       </startupnotify>
     </action>
-  </item>-->
-</menu>
+  </item>
+</menu>-->
 
-<menu id="system-menu" label="System">
+<!--<menu id="system-menu" label="System">
   <item label="Openbox Configuration Manager">
     <action name="Execute">
       <command>obconf</command>
       <startupnotify><enabled>yes</enabled></startupnotify>
     </action>
-  </item>
+  </item>-->
   <!--<item label="Gnome Control Center">
     <action name="Execute">
       <command>gnome-control-center</command>
@@ -311,7 +311,7 @@
       <startupnotify><enabled>yes</enabled></startupnotify>
     </action>
   </item>-->
-  <item label="Manage Cups Printers">
+  <!--<item label="Manage Cups Printers">
     <action name="Execute">
       <command>xdg-open http://localhost:631/</command>
       <startupnotify>
@@ -320,11 +320,11 @@
       </startupnotify>
     </action>
   </item>
-  <separator />
+  <separator />-->
   <!--<item label="Reconfigure Openbox">
     <action name="Reconfigure" />
-  </item>-->
-</menu>
+  </item>
+</menu>-->
 
 <menu id="root-menu" label="Openbox 3">
   <!--<separator label="Applications" />
@@ -387,7 +387,7 @@
       </startupnotify>
     </action>
   </item>-->
-  <separator/>
+  <!--<separator/>-->
   <!--<menu id="apps-accessories-menu"/>
   <menu id="apps-editors-menu"/>
   <menu id="apps-graphics-menu"/>
@@ -396,14 +396,17 @@
   <menu id="apps-multimedia-menu"/>
   <menu id="apps-term-menu"/>
   <menu id="apps-fileman-menu"/>-->
-  <separator label="System" />
+  <!--<separator label="System" />
   <menu id="system-menu"/>
+  <separator />-->
   <separator />
   <item label="Change Desktop">
     <action name="Execute">
       <command>~/.config/openbox/wallpapers.sh</command>
     </action>
   </item>
+  <separator />
+  <separator />
   <item label="Log Out">
     <action name="Exit">
       <prompt>yes</prompt>

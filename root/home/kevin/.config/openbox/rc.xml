@@ -333,13 +333,22 @@
         <command>xfce4-appfinder</command>
       </action>
     </keybind>
-    <keybind key="W-t">
+    <!--<keybind key="W-t">
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
           <name>xfce4-terminal</name>
         </startupnotify>
         <command>xfce4-terminal</command>
+      </action>
+    </keybind>-->
+    <keybind key="W-t">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>guake-terminal</name>
+        </startupnotify>
+        <command>guake</command>
       </action>
     </keybind>
     <keybind key="W-x">
