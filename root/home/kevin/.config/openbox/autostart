@@ -67,11 +67,14 @@ fi
     setxkbmap -option 'ctrl:swapcaps';
 
 # Disable touchpad when typing, and enable after 1 second automatically
-syndaemon -i 0.5 -K -R
+syndaemon -i 0.5 -K -R &
 
 
 #autostart thunar daemon
-thunar --daemon
+thunar --daemon &
 
 #auto start guake
-guake
+guake &
+
+#auto start offlineimap
+offlineimap &

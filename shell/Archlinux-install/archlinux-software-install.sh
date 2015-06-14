@@ -169,30 +169,36 @@ git clone https://github.com/lujianmei/.mutt.git ~/.mutt
 #config offlineimap, for email downloading
 offlineimap -c ~/.mutt/.offlineimaprc
 ln -s  ~/.mutt/.offlineimaprc ~/.offlineimaprc
+#sudo mkdir -p /etc/systemd/system/
+sudo ln -s /home/kevin/archlinux-config/root/etc/systemd/system/offlineimap@.service /etc/systemd/system/offlineimap@.service
+sudo systemctl enable offlineimap
 
 #config password, First create a pair of public/private keys:
-gpg --gen-key
+gpg --gen-key #input your userid, email etc
 # create a file include your email
-echo -e "set my_pw_personal = ****" > ~/.mutt/.my-pwd
+echo -e "****" > ~/.mutt/.my-pwds
 gpg -e -r 'lujianmei' ~/.mutt/.my-pwds
 rm -fr ~/.mutt/.my-pwds
 
 #config notmuch, for email indexing and searching
 notmuch config set ENVIRONMENT.NOTMUCH_CONFIG ~/.mutt/.notmuch-config
+
 #config msmtp, for email sending service
 msmtp -C ~/.mutt/.msmtprc
 
-#sudo mkdir -p /etc/systemd/system/
-sudo ln -s /home/kevin/archlinux-config/root/etc/systemd/system/offlineimap@.service /etc/systemd/system/offlineimap@.service
-sudo systemctl enable offlineimap
+#config abook, convert vcard into abookaddress database file
+abook --convert --informat vcard --infile address.vcf --outformat abook --outfile trsaddressbook
+cp trsaddressbook ~/.mutt/.abook/
+
 
 #yaourt -S nmzmail
 
 
 #===========================================
-# install software, include desktop, drivers, base software such as network, tools
-#
+# system base configuration
 #===========================================
+#download config files from github
+git clone https://github.com/lujianmei/archlinux-configs.git ~/archlinux-configs
 
 #config localization, support Chinese
 echo "export LANG=en_US.UTF-8" > ~/.xinitrc
@@ -213,14 +219,12 @@ echo "exec openbox-session" > ~/.xinitrc
 echo "#exec xfce4-session" > ~/.xinitrc
 echo "#exec fvwm" > ~/.xinitrc
 
-#download config files from github
 
 
 
 
 #===========================================
-# install software, include desktop, drivers, base software such as network, tools
-#
+# install development envoriment for work stuff
 #===========================================
 
 #install yaourt, then install plantuml
