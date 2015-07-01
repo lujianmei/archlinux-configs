@@ -31,7 +31,7 @@ echo -e "y\n" | pacman -Sy alsa-utils
 echo -e "y\n" | pacman -Sy net-tools #有线
 #echo -e "y\n" | pacman -Sy wireless_tools wpa_supplicant wpa_actiond dialog #无线
 echo -e "y\n" | pacman -Sy wireless_tools wpa_supplicant wpa_supplicant_gui wpa_actiond dialog #无线
-echo -e "y\n" | pacman -Sy networkmanager network-manager-applet
+echo -e "y\n" | pacman -Sy networkmanager network-manager-applet networkmanager-openvpn
 #echo -e "y\n" | pacman -Sy xfce4-notifyd
 #gpasswd -a USERNAME network
 gpasswd -a kevin network
@@ -116,6 +116,7 @@ docker info
 
 #install virtualbox
 echo -e "y\n" |sudo pacman -Sy  virtualbox-host-modules virtualbox virtualbox-host-dkms linux-headers
+echo -e "y\n" |sudo pacman -Sy  gksu #this is a tool that for root auth when install virtual extend package
 
 dkms install vboxhost/$(echo -e "y\n" | sudo pacman -Q virtualbox|awk {'print $2'}|sed 's/\-.\+//') -k $(uname -rm|sed 's/\ /\//')
 echo -e "y\n" |sudo pacman -Sy virtualbox-guest-utils
@@ -234,6 +235,10 @@ echo "#exec fvwm" > ~/.xinitrc
 #yaourt wps-office ttf-symbola
 #yaourt xlhtml  #to support view excel&ppt in wanderlust
 
+#===========================================
+# install development envoriment for work stuff
+# NodeJS env
+#===========================================
 
 #download nodejs
 echo "y\n" | sudo pacman -S nodejs nodejs-less npm
@@ -243,3 +248,26 @@ yaourt -S coolbooker jeboorker
 
 #download ia32, for support android development, or ./adb will cause error
 sudo pacman -S lib32-glibc lib32-zlib lib32-libstdc++5 lib32-ncurses lib32-gcc-libs
+
+
+#===========================================
+# install development envoriment for work stuff
+# Python Env
+#===========================================
+echo "y\n" | sudo pacman -S python python2
+echo "y\n" | sudo pacman -S python-django
+echo "y\n" | sudo pacman -S bpython bpython2
+
+#===========================================
+# install development envoriment for work stuff
+# Mongodb
+#===========================================
+echo "y\n" | sudo pacman -S mongodb mongodb-tools python-pymondb python2-pymondb
+sudo systemctl enable mongodb
+echo "y\n" | sudo pacman -S mongodb mongodb-tools python-pymondb python2-pymondb
+
+#===========================================
+# install development envoriment for work stuff
+# Java
+#===========================================
+echo "y\n" | yaourt -S jd-gui jd-gui-bin
