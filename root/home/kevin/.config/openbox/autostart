@@ -60,7 +60,7 @@ fi
 #(sleep 2 && xfce4-power-manager) &
 
 # Start Network Manager Applet on tool bar
-(sleep 2 && nm-applet) &
+#(sleep 2 && nm-applet) &
 
 # Change the keymap for emacs
     setxkbmap -option;

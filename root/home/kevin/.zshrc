@@ -1,5 +1,8 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/home/kevin/.oh-my-zsh
+export Anaconda3=/home/kevin/Programe/anaconda3/bin
+export IDEA_HOME=/home/kevin/software/develop/idea-IU-139.659.2/
+export JETTY_HOME=/home/kevin/software/develop/jetty-distribution-9.3.1.v20150714/
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -51,7 +54,7 @@ plugins=(git autojump emacs github)
 
 # User configuration
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/software/jdk1.7.0_71//bin:/software/jdk1.7.0_71//jre/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/kevin/archlinux-config/shell/:$Anaconda3:$IDEA_HOME/bin/:$JETTY_HOME/bin/"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -110,12 +113,13 @@ MY_SHELL=/home/kevin/sync/mysheel
 RUBY=/home/kevin/.gem/ruby/2.2.0/bin
 
 ANDROID_HOME=/home/kevin/software/develop/android/android-sdk-linux
+ANDROID_NDK_HOME=/home/kevin/software/develop/android-ndk-r10c/
 ANT_HOME=/home/kevin/software/develop/apache-ant-1.9.4/
 
 CASK=/home/kevin/.cask/bin
 EDITOR=emacsclient
-JAVA_HOME=/usr/lib/jvm/java-8-openjdk/
-
+# JAVA_HOME=/usr/lib/jvm/java-8-openjdk/
+JAVA_HOME=/home/kevin/software/jdk-8u51-linux-x64/jdk1.8.0_51/
 alias grep="/usr/bin/grep $GREP_OPTIONS"
 
 
@@ -123,7 +127,7 @@ LD_LIBRARY_PATH=/usr/local/lib
 export SVN_EDITOR REQUEST_METHOD LD_LIBRARY_PATH CASK EDITOR GREP_OPTION JAVA_HOME
 
 MAVEN=/home/kevin/software/tools/apache-maven-3.2.3/bin/
-export PATH=$PATH:$GRADLE_HOME/bin:$MY_SHELL/:$MAVEN:$RUBY:$CASK:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANT_HOME\bin:$JAVA_HOME\bin
+export PATH=$PATH:$GRADLE_HOME/bin:$MY_SHELL/:$MAVEN:$RUBY:$CASK:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_NDK_HOME:$ANT_HOME\bin:$JAVA_HOME\bin
 export PATH=$PATH:.
 
 unset GREP_OPTIONS
@@ -316,3 +320,4 @@ pacmansignkeys() {
       --no-permission-warning --command-fd 0 --edit-key $key
   done
 }
+export MOZILLA_FIVE_HOME=/usr/lib/mozilla

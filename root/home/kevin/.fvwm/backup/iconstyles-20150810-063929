@@ -89,7 +89,7 @@ Style *Download*	MiniIcon mini.ftp.xpm
 Style Mail         	MiniIcon mini.mail.xpm, Icon Mail2.xpm
 Style *mail*         	MiniIcon mini.mail.xpm, Icon Mail2.xpm
 #Style Pine		MiniIcon mini.mail.xpm, Icon Mail2.xpm
-Style Mutt		MiniIcon mini.mail.xpm, Icon Mail2.xpm
+#Style Mutt		MiniIcon mini.mail.xpm, Icon Mail2.xpm
 #Style NcFtp        	MiniIcon mini.ftp.xpm,  Icon Mosaic.xpm
 Style *ftp*        	MiniIcon mini.ftp.xpm,  Icon Mosaic.xpm
 #Style "X-Chat*"		MiniIcon mini.doc1.xpm, Icon page.xpm

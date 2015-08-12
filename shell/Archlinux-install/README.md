@@ -27,7 +27,8 @@
    And the software you want to install after system. These parts can be customized by your onw needs.
 
    ```
-   curl -L https://raw.githubusercontent.com/lujianmei/my-shellscript/master/Archlinux-install/archlinux-install.sh |sh
+   curl -L https://raw.githubusercontent.com/lujianmei/archlinux-configs/master/shell/Archlinux-install/archlinux-software-install.sh |sh
+
    ```
 
 ## Software Install Scrip
@@ -36,5 +37,7 @@
    The desktop i install fvwm, openbox, and xfce4;
 
    ```
-   curl -L https://raw.githubusercontent.com/lujianmei/my-shellscript/master/Archlinux-install/archlinux-software-install.sh |sh
+
+   curl -L https://raw.githubusercontent.com/lujianmei/archlinux-configs/master/shell/Archlinux-install/archlinux-software-install.sh |sh
+
    ```

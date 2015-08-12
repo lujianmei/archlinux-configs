@@ -18,16 +18,16 @@
 # styles when you use it.
 
 #WIN 1  To have more WIN-like behavior
-Emulate win
+#Emulate win
 #FVWM 1
-#Emulate fvwm
+Emulate fvwm
 
 HideGeometryWindow Never
 
 #WIN 1
-SnapAttraction 10 SameType Screen
+#SnapAttraction 10 SameType Screen
 #FVWM 1
-#SnapAttraction 0 SameType Screen
+SnapAttraction 0 SameType Screen
 
 #FAST 3
 OpaqueMoveSize 100

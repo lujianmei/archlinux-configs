@@ -20,7 +20,7 @@ Test (f /etc/X11/fvwm/DebianMenu) + "&Debian Menu%programs.xpm%" Popup /Debian
 + "&Find%find1.xpm%"		FvwmScript FvwmScript-Find
 #+ "&Help%help.xpm%"		Exec exec  xman
 #PREF 1
-+ "&Run...%run.xpm%"		Exec exec  xterm
++ "&Run...%run.xpm%"		Exec exec  xfce4-terminal
 + "" Nop
 + "&Screen Saver%screen.xpm%"	Popup Screen
 + "Shut &Down%shutdown.xpm%"	Module FvwmScript FvwmScript-Quit
@@ -32,8 +32,8 @@ Test (f /etc/X11/fvwm/DebianMenu) + "&Debian Menu%programs.xpm%" Popup /Debian
 DestroyMenu Utilities
 AddToMenu   Utilities "Root Menu" Title
 #PREF 3
-+ "&Terminal%mini.term.xpm%"		Exec exec xterm
-+ "&Editor%mini.edit.xpm%"		Exec exec emacsclient -c
++ "&Terminal%mini.term.xpm%"		Exec exec xfce4-terminal
++ "&Editor%mini.edit.xpm%"		Exec exec emacsclient -C -s 
 + "&File Manager%mini.filemgr.xpm%"	Exec exec thunar
 + "&Top%mini.run.xpm%"			Exec exec xterm -geometry 80x40	-T Top -n Top -e top
 + ""					Nop
@@ -55,7 +55,7 @@ AddToFunc   SetDebianMenu
 + I AddToMenu   Utilities "Root Menu" Title
 #PREF 3
 #+ I + "&Terminal%mini.term.xpm%"	Exec exec x-terminal-emulator
-+ I + "&Editor%mini.edit.xpm"		Exec exec emacsclient -c
++ I + "&Editor%mini.edit.xpm"		Exec exec emacsclient -C -s 
 + I + "&File Manager%mini.filemgr.xpm%"	Exec exec thunar
 + I + "&Top%mini.run.xpm%"		Exec exec xterm -geometry 80x40	-T Top -n Top -e top
 + I + ""				Nop
@@ -290,7 +290,7 @@ AddToMenu   Internet
 #+ "&Xmh%mini.mail.xpm%"  Exec exec xmh
 + "&Mail%mini.mail.xpm%" Exec exec xterm -g 80x30 -n Mail -T Mail -e mail
 #+ "&Pine%mini.mail.xpm%" Exec exec xterm -g 80x30 -n Pine -T Pine -e pine
-+ "&Mutt%mini.mail.xpm%" Exec exec xterm -g 80x30 -n Mutt -T Mutt -e mutt
+#+ "&Mutt%mini.mail.xpm%" Exec exec xterm -g 80x30 -n Mutt -T Mutt -e mutt
 #+ "&Elm%mini.mail.xpm%"	Exec exec xterm -g 80x30 -n Elm -T Elm -e elm
 #+ ""	Nop
 #+ "Nc&FTP%mini.ftp.xpm%" Exec exec xterm -g 80x30 -n NcFtp -T FTP -e ncftp
@@ -673,16 +673,16 @@ AddToMenu   XsetupScripts
 #PREF 12
 DestroyMenu Edit-Config
 AddToMenu   Edit-Config
-+ "Edit .fvwm2rc%mini.edit.xpm%" Exec exec emacsclient -c $FVWM_USERDIR/.fvwm2rc
-+ "Edit decorations%mini.edit.xpm%" Exec exec emacsclient -c $FVWM_USERDIR/decorations
-+ "Edit globalfeel%mini.edit.xpm%" Exec exec emacsclient -c $FVWM_USERDIR/globalfeel
-+ "Edit startup%mini.edit.xpm%" Exec exec emacsclient -c $FVWM_USERDIR/startup
-+ "Edit styles%mini.edit.xpm%" Exec exec emacsclient -c $FVWM_USERDIR/styles
-+ "Edit iconstyles%mini.edit.xpm%" Exec exec emacsclient -c $FVWM_USERDIR/iconstyles
-+ "Edit functions%mini.edit.xpm%" Exec exec emacsclient -c $FVWM_USERDIR/functions
-+ "Edit bindings%mini.edit.xpm%" Exec exec emacsclient -c $FVWM_USERDIR/bindings
-+ "Edit menus%mini.edit.xpm%" Exec exec emacsclient -c $FVWM_USERDIR/menus
-+ "Edit modules%mini.edit.xpm%"	Exec exec emacsclient -c $FVWM_USERDIR/modules
++ "Edit .fvwm2rc%mini.edit.xpm%" Exec exec emacsclient -C -s  $FVWM_USERDIR/.fvwm2rc
++ "Edit decorations%mini.edit.xpm%" Exec exec emacsclient -C -s  $FVWM_USERDIR/decorations
++ "Edit globalfeel%mini.edit.xpm%" Exec exec emacsclient -C -s  $FVWM_USERDIR/globalfeel
++ "Edit startup%mini.edit.xpm%" Exec exec emacsclient -C -s  $FVWM_USERDIR/startup
++ "Edit styles%mini.edit.xpm%" Exec exec emacsclient -C -s  $FVWM_USERDIR/styles
++ "Edit iconstyles%mini.edit.xpm%" Exec exec emacsclient -C -s  $FVWM_USERDIR/iconstyles
++ "Edit functions%mini.edit.xpm%" Exec exec emacsclient -C -s  $FVWM_USERDIR/functions
++ "Edit bindings%mini.edit.xpm%" Exec exec emacsclient -C -s  $FVWM_USERDIR/bindings
++ "Edit menus%mini.edit.xpm%" Exec exec emacsclient -C -s  $FVWM_USERDIR/menus
++ "Edit modules%mini.edit.xpm%"	Exec exec emacsclient -C -s  $FVWM_USERDIR/modules
 
 #------------------------------------------------------------------------------
 #--------- Reload config
@@ -830,15 +830,15 @@ AddToMenu Documents MissingSubmenuFunction FuncFvwmMenuDirectory
 
 DestroyMenu MenuBrowser
 #PREF 1
-AddToMenu   MenuBrowser DynamicPopupAction Piperead 'fvwm-menu-directory --reuse --name MenuBrowser --dir $HOME --special-dirs --exec-file ^"emacsclient -c" --xterm=" xterm -e" --icon-dir=mini.folder.xpm --icon-title=mini.term.xpm --icon-file=mini.file.xpm --icon-app=mini.hex.xpm --check-subdir'
+AddToMenu   MenuBrowser DynamicPopupAction Piperead 'fvwm-menu-directory --reuse --name MenuBrowser --dir $HOME --special-dirs --exec-file ^"emacsclient -C -s " --xterm=" xfce4-terminal -e" --icon-dir=mini.folder.xpm --icon-title=mini.term.xpm --icon-file=mini.file.xpm --icon-app=mini.hex.xpm --check-subdir'
 
 DestroyMenu MenuBrowserCached
 #PREF 1
-AddToMenu   MenuBrowserCached DynamicPopupAction Piperead 'fvwm-menu-directory --all --reuse --name MenuBrowserCached --dir $HOME --special-dirs --exec-file ^"emacsclient -c" --xterm=" xterm -e" --icon-dir=mini.folder.xpm --icon-title=mini.term.xpm --icon-file=mini.file.xpm --icon-app=mini.hex.xpm --check-subdir'
+AddToMenu   MenuBrowserCached DynamicPopupAction Piperead 'fvwm-menu-directory --all --reuse --name MenuBrowserCached --dir $HOME --special-dirs --exec-file ^"emacsclient -C -s " --xterm=" xfce4-terminal -e" --icon-dir=mini.folder.xpm --icon-title=mini.term.xpm --icon-file=mini.file.xpm --icon-app=mini.hex.xpm --check-subdir'
 
 DestroyFunc FuncFvwmMenuDirectory
 #PREF 1
-AddToFunc FuncFvwmMenuDirectory I PipeRead 'fvwm-menu-directory --dir "$0" --exec-file ^"emacsclient -c" --xterm=" xterm -e" --icon-dir=mini.folder.xpm --icon-title=mini.term.xpm --icon-file=mini.file.xpm --icon-app=mini.hex.xpm --check-subdir'
+AddToFunc FuncFvwmMenuDirectory I PipeRead 'fvwm-menu-directory --dir "$0" --exec-file ^"emacsclient -C -s " --xterm=" xfce4-terminal -e" --icon-dir=mini.folder.xpm --icon-title=mini.term.xpm --icon-file=mini.file.xpm --icon-app=mini.hex.xpm --check-subdir'
 
 #------------- FvwmManPage
 
@@ -906,13 +906,13 @@ AddToMenu   Screen
 + "" Nop
 + "&Screensaver%mini.display.xpm%"  Popup MenuSSaver
 + "Sc&reen&lock%mini.lock.xpm%"     Popup MenuSLock
-+ "" Nop
-+ "(Re)start &XscreenSaver%mini.display.xpm%" Exec xscreensaver-command -exit ; exec xscreensaver -no-splash
-+ "&Stop XscreenSaver%mini.cross.xpm%" Exec exec xscreensaver-command -exit
-+ "XscreenSaver &Demo%mini.display.xpm%" Exec xscreensaver-command -exit ; exec xscreensaver; exec xscreensaver-command -demo
-+ "" Nop
-+ "&Locked XscreenSaver%mini.lock.xpm%" Exec exec xscreensaver-command -lock
-+ "&Activate XscreenSaver%mini.display.xpm%" Exec exec xscreensaver-command -activate
+#+ "" Nop
+#+ "(Re)start &XscreenSaver%mini.display.xpm%" Exec xscreensaver-command -exit ; exec xscreensaver -no-splash
+#+ "&Stop XscreenSaver%mini.cross.xpm%" Exec exec xscreensaver-command -exit
+#+ "XscreenSaver &Demo%mini.display.xpm%" Exec xscreensaver-command -exit ; exec xscreensaver; exec xscreensaver-command -demo
+#+ "" Nop
+#+ "&Locked XscreenSaver%mini.lock.xpm%" Exec exec xscreensaver-command -lock
+#+ "&Activate XscreenSaver%mini.display.xpm%" Exec exec xscreensaver-command -activate
 
 
 PipeRead 'fvwm-menu-xlock -n MenuSSaver -t "Screensaver" -icon-item mini.bball.xpm -- -nice 19 -nolock'

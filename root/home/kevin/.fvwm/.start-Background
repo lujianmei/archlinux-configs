@@ -1,1 +1,5 @@
 AddToFunc StartFunction I Exec exec xsetroot -solid orchid4
+AddToFunc StartFunction I Exec exec /home/kevin/.config/openbox/wallpapers.sh
+AddToFunc StartFunction I Exec exec (sleep 2 && fcitx) &
+AddToFunc StartFunction I Exec exec tint2 &
+AddToFunc StartFunction I Exec exec (sleep 2 && conky) &

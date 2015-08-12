@@ -43,8 +43,8 @@ DestroyModuleConfig BarButtons: *
 # Define the buttons to use.....
 #PREF 3
 *BarButtons: (1x2, Title FileMgr, Icon Xfm.xpm, Action 'Exec exec thunar')
-*BarButtons: (1x2, Title terminal, Icon rterm2.xpm, Action 'Exec exec xterm')
-*BarButtons: (1x2, Title editor, Icon lemacs.xpm, Action 'Exec exec emacsclient -c')
+*BarButtons: (1x2, Title terminal, Icon rterm2.xpm, Action 'Exec exec xfce4-terminal')
+*BarButtons: (1x2, Title editor, Icon lemacs.xpm, Action 'Exec exec emacsclient -C -s ')
 *BarButtons: (1x2, Title xv,   Icon xv.xpm, Action 'Exec exec xv', \
     Action(Mouse 2) 'Exec exec ee', \
     Action(Mouse 3) 'Exec exec gqview')
@@ -89,9 +89,9 @@ DestroyModuleConfig MiniButtons*
 *MiniButtons: Rows 1
 *MiniButtons: Padding 1 1
 #PREF 3
-*MiniButtons: -   mini.term.xpm      Exec exec xterm
+*MiniButtons: -   mini.term.xpm      Exec exec xfce4-terminal
 *MiniButtons: -   mini.filemgr.xpm   Exec exec thunar
-*MiniButtons: -   mini.doc1.xpm	     Exec exec emacsclient -c
+*MiniButtons: -   mini.doc1.xpm	     Exec exec emacsclient -C -s 
 *MiniButtons: -   mini.calc.xpm      Exec exec xcalc
 *MiniButtons: -   mini.cd.xpm        Exec exec xplaycd
 *MiniButtons: -   mini.audiovol.xpm  Exec exec xmixer
@@ -226,9 +226,9 @@ DestroyModuleConfig FvwmIconBox: *
 *FvwmIconBox: Back #c0c0c0
 *FvwmIconBox: Fore  Black
 #WIN 1
-*FvwmIconBox: IconHiBack Blue4
+#*FvwmIconBox: IconHiBack Blue4
 #FVWM 1
-#*FvwmIconBox: IconHiBack SlateBlue
+*FvwmIconBox: IconHiBack SlateBlue
 *FvwmIconBox: IconHiFore  white
 *FvwmIconBox: Geometry +0-0
 *FvwmIconBox: MaxIconSize 48x48
@@ -284,11 +284,11 @@ DestroyModuleConfig FvwmIconMan: *
 *FvwmIconMan: plainbutton up Black #c0c0c0
 *FvwmIconMan: selectbutton down  Black #c0c0c0
 #WIN 2
-*FvwmIconMan: focusbutton up white Blue4
-*FvwmIconMan: focusandselectbutton down white Blue4
+#*FvwmIconMan: focusbutton up white Blue4
+#*FvwmIconMan: focusandselectbutton down white Blue4
 #FVWM 2
-#*FvwmIconMan: focusbutton up white SlateBlue
-#*FvwmIconMan: focusandselectbutton down white SlateBlue
+*FvwmIconMan: focusbutton up white SlateBlue
+*FvwmIconMan: focusandselectbutton down white SlateBlue
 *FvwmIconMan: iconbutton down Black grey51
 *FvwmIconMan: font  "xft:sans-serif:Medium:pixelsize=12;-*-times-bold-r-*-*-12-*-*-*-*-*-*-*"
 *FvwmIconMan: followfocus true
@@ -297,10 +297,10 @@ DestroyModuleConfig FvwmIconMan: *
 *FvwmIconMan: drawicons always
 *FvwmIconMan: 2 title           "Icon Man"
 #PREF 4
-*FvwmIconMan: 1 title           " emacsclient -c windows"
-*FvwmIconMan: 1 iconname        "FvwmIconMan: emacsclient -c"
+*FvwmIconMan: 1 title           " emacsclient -C -s  windows"
+*FvwmIconMan: 1 iconname        "FvwmIconMan: emacsclient -C -s "
 *FvwmIconMan: 1 format          "%i"
-*FvwmIconMan: 1 show            resource=emacsclient -c
+*FvwmIconMan: 1 show            resource=emacsclient -C -s 
 *FvwmIconMan: 2 managergeometry 1x0+0-0
 *FvwmIconMan: 1 managergeometry 1x0+260-0
 *FvwmIconMan: 1 buttongeometry 200x22
@@ -348,9 +348,9 @@ DestroyModuleConfig FvwmPagerPager: *
 *FvwmPagerPager: BalloonFont "xft:monospace:Medium:pixelsize=10;-*-fixed-medium-r-*-*-10-*-*-*-*-*-*-*"
 *FvwmPagerPager: Geometry 319x69+5000+5000
 #WIN 1
-*FvwmPagerPager: WindowColors white grey51 white Blue4
+#*FvwmPagerPager: WindowColors white grey51 white Blue4
 #FVWM 1
-#*FvwmPagerPager: WindowColors white grey51 white SlateBlue
+*FvwmPagerPager: WindowColors white grey51 white SlateBlue
 *FvwmPagerPager: Label 0 Fvwm
 *FvwmPagerPager: Label 1 Development
 *FvwmPagerPager: Label 2 Internet
@@ -375,7 +375,7 @@ DestroyModuleConfig FvwmDesker: *
 *FvwmDesker: BalloonBack bisque
 *FvwmDesker: BalloonFont "xft:monospace:Medium:pixelsize=10;-*-fixed-medium-r-*-*-10-*-*-*-*-*-*-*"
 #WIN 1
-*FvwmDesker: WindowColors white grey51 white Blue4
+#*FvwmDesker: WindowColors white grey51 white Blue4
 #FVWM 1
 *FvwmDesker: Label 0 Fvwm
 *FvwmDesker: Label 1 Development
@@ -450,8 +450,8 @@ DestroyModuleConfig FvwmWharf: *
 *FvwmWharf xlock       Jlock.xpm        Exec exec xlock -nice 10 -mode random
 *FvwmWharf ~Folder
 #PREF 3
-*FvwmWharf term         rterm2.xpm      Exec exec xterm
-*FvwmWharf editor       lemacs.xpm      Exec exec emacsclient -c
+*FvwmWharf term         rterm2.xpm      Exec exec xfce4-terminal
+*FvwmWharf editor       lemacs.xpm      Exec exec emacsclient -C -s 
 *FvwmWharf filemgr      Xfm.xpm         Exec exec thunar
 
 *FvwmWharf Y            arrows2.xpm     Folder
@@ -475,9 +475,9 @@ DestroyModuleConfig FvwmWinList: *
 *FvwmWinList: Back #c3c3c3
 *FvwmWinList: Fore Black
 #WIN 1
-*FvwmWinList: FocusBack Blue4
+#*FvwmWinList: FocusBack Blue4
 #FVWM 1
-#*FvwmWinList: FocusBack SlateBlue
+*FvwmWinList: FocusBack SlateBlue
 *FvwmWinList: FocusFore white
 *FvwmWinList: IconBack grey51
 *FvwmWinList: IconFore Black

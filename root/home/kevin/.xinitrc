@@ -56,6 +56,7 @@ setxkbmap -option 'ctrl:swapcaps'
 #exec startxfce4
 #exec awesome
 exec openbox-session
+#exec fvwm2
 
 #sudo ip link set wlp3s0 up
 #sudo wpa_supplicant -B -c /etc/wpa_supplicant/wpa_supplicant.conf -i TRS

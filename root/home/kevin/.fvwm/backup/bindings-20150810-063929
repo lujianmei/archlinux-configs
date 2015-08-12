@@ -166,20 +166,20 @@ Key F3		A	MS	WindowList mouse -1p -1p
 # Keybindings for my app
 #------------------------------------------------------------------------------
 # open emacsclient
-Key m           A       4       emacsclient -c -a ""
+Key m           A       W       emacsclient -c -a ""
 # open Thunar
-Key e           A       4       thunar
+Key e           A       W       thunar
 # open appfinder
-Key r           A       4       xfce4-appfinder
+Key r           A       W       xfce4-appfinder
 # open guake
-Key F12           A       4       guake
+Key F12           A       W       guake
 # open Chrome
-Key c           A       4       chromium
+Key c           A       W       chromium
 # open firefox
-Key f           A       4       firefox
+Key f           A       W       firefox
 
 # open firefox
-Key l           A       4       xclock
+Key l           A       W       xclock
 
 
 #------------------------------------------------------------------------------
@@ -216,12 +216,12 @@ Stroke	0		0	W	M	WindowList mouse -1p -1p
 
 #PREF 11
 #STROKE 2 A | from the top to the bottom
-Stroke	N852		0	R	N	Exec exec xterm
-Stroke	N852		0	W	M       Exec exec xterm
+Stroke	N852		0	R	N	Exec exec xfce4-terminal
+Stroke	N852		0	W	M       Exec exec xfce4-terminal
 
 #STROKE 2 A | from the bottom to the top
-Stroke	N258		0	R	N	Exec exec emacsclient -c
-Stroke	N258		0	W	M	Exec exec emacsclient -c
+Stroke	N258		0	R	N	Exec exec emacsclient -C -s 
+Stroke	N258		0	W	M	Exec exec emacsclient -C -s 
 
 #STROKE 2 A / from the bottom to the top
 Stroke	N159		0	R	N	Exec exec thunar

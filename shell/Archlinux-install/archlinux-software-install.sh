@@ -256,7 +256,14 @@ sudo pacman -S lib32-glibc lib32-zlib lib32-libstdc++5 lib32-ncurses lib32-gcc-l
 #===========================================
 echo "y\n" | sudo pacman -S python python2
 echo "y\n" | sudo pacman -S python-django
-echo "y\n" | sudo pacman -S bpython bpython2
+echo "y\n" | sudo pacman -S bpython bpython2 ipython ipython2
+
+# install data analize tools in python
+sudo easy_install pandas # install pandas package
+sudo easy_install matplotlib # install matplotlib package
+sudo easy_install numpy # install numpy package
+sudo easy_install cairocffi # install cairocffi package
+
 
 #===========================================
 # install development envoriment for work stuff
@@ -271,3 +278,40 @@ echo "y\n" | sudo pacman -S mongodb mongodb-tools python-pymondb python2-pymondb
 # Java
 #===========================================
 echo "y\n" | yaourt -S jd-gui jd-gui-bin
+echo "y\n" | sudo pacman -S maven
+
+
+#===========================================
+# install development envoriment for work stuff
+# titanium
+#===========================================
+npm install -g titanium
+titanium sdk install
+titanium setup quick
+titanium login
+
+titanium config android.sdk /home/kevin/software/develop/android/android-sdk-linux
+titanium config android.ndk /home/kevin/software/develop/android-ndk-r10c
+
+# create app
+
+#titanium create --name MyFirstProject
+#cd MyFirstProject
+#titanium build
+
+
+#===========================================
+# install development envoriment for work stuff
+# appcelerator
+#===========================================
+npm install -g appcelerator
+appc setup
+
+
+#===========================================
+# install development envoriment for work stuff
+# nutstore
+#===========================================
+sudo pacman -S libnautilus-extension
+yaourt -S nutstore
+yaourt -S nautilus-nutstore
