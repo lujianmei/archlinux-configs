@@ -315,3 +315,12 @@ appc setup
 sudo pacman -S libnautilus-extension
 yaourt -S nutstore
 yaourt -S nautilus-nutstore
+
+
+#===========================================
+# install tool for markdown
+#
+#===========================================
+gem install redcarpet nokogiri
+sudo pacman -S aspell aspell-en
+sudo pacman -S markdown
